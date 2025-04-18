@@ -1,41 +1,30 @@
-# advanced-bioinformatics-2023-assessment
+# advanced-bioinformatics-2025-assessment
 
-# NGS Variant Calling Pipeline – Assignment Submission
+## 🧬 Advanced Bioinformatics – Assignment Submission
 
-This repository contains two fully automated Bash scripts designed to execute a standard NGS data analysis pipeline from raw Illumina paired-end reads to variant calling and annotation. These scripts were developed as part of an academic assignment for evaluating bioinformatics skills in a Linux environment.
-
----
-
-## Assignment Context
-
-This project was completed in response to the following assessment brief:
-
-> "You are required to share a Bash script that runs the workflow and takes the provided sequencing data as input. The script will be evaluated for its ability to install tools, perform read alignment, variant discovery, and annotation using a standard command-line NGS pipeline on a Linux OpenStack instance."
-
-- Single-sample analysis using paired-end reads from a HiSeq 2500 run  
-- All steps automated via Bash  
-- Scripts tested on an Ubuntu OpenStack virtual machine (note: encountered storage limitations)
+This repository contains two Bash scripts designed to execute a standard NGS data analysis pipeline and an R Markdown file exploring other related bioinformatics exercises. It was developed as part of the **Advanced Bioinformatics 2025** assignment to demonstrate command-line workflow design and scripting.
 
 ---
 
-## Contents
+## 🗂️ Contents
 
-This repository includes **two Bash scripts**:
+- `Hanae_Roussotte_AF52866_Adv.BioinformaticsAssignment_BWA.sh`: Main pipeline using **BWA-MEM**, with detailed comments and rationale.
+- `Hanae_Roussotte_AF52866_Adv.BioinformaticsAssignment_Bowtie.sh`: Alternative pipeline using **Bowtie**, with a streamlined version of the same workflow.
+- `Hanae_Roussotte_AF52866_Adv.BIoinformaticsAssignment_RFiles`: Folder containing the R Markdown document and its rendered HTML output.
 
-- `detailed-bashscript-pipeline-bwa.sh`: The main pipeline using **BWA-MEM** for alignment. This script includes **detailed explanations and comments** for each command and tool used, justifying parameter choices and highlighting good practices.
-- `bashscript-pipeline-bowtie.sh`: An alternative version of the pipeline using **Bowtie** as the aligner. This script is streamlined and does **not include extensive command comments**, but demonstrates the same logic and structure using a different alignment strategy.
+The answer sheet (PDF) has been submitted separately via **KEATS**.
 
 ---
 
-## Installation and Dependencies
+## ⚙️ Installation and Dependencies
 
-Both scripts use **Miniconda** to create an isolated environment and install required tools from **Bioconda**. Example from the main pipeline:
+The pipeline scripts use **Miniconda** and **Bioconda** to install all required NGS tools, ensuring reproducibility in a Linux environment. R and RStudio were used for the RNA-seq and ChIP-seq analysis, included as R Markdown (`.Rmd`) and rendered HTML output.
+
+Example conda setup for the Bash pipeline:
 
 ```bash
-# Create and activate conda environment
 conda create -y -n ngs_pipeline
 conda activate ngs_pipeline
 
-# Install required tools
-conda install -y -c bioconda fastqc=0.11.9 trimmomatic=0.39 bwa=0.7.17 samtools=1.13 \
-    picard=2.26.0 freebayes=1.3.5 bedtools=2.30.0 bcftools=1.13 annovar snpeff=5.0
+conda install -y -c bioconda fastqc trimmomatic bwa samtools picard freebayes bedtools bcftools annovar snpeff
+
